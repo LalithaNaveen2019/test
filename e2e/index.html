@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>database test</title>
+    </head>
+        <body>
+<table>
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>role</th>
+    </thead>
+    <tbody id="employee">
+
+    </tbody>
+</table>
+
+<script>
+fetch("https://6656cad39f970b3b36c687f3.mockapi.io/employee")
+.then((r)=>{
+return r.json();
+})
+.then((r)=>{
+var response = "";
+r.map((d)=>{
+    response += '<tr>';
+    response += '<td>${d.id}</td>';
+    response += '<td>${d.name}</td>';
+    response += '<td>${d.role}</td>';
+    response += '</tr>';
+})
+
+document.getElementById("employee").innerHTML = response;
+
+})
+
+</script>
+
+        </body>
+  
+</html>
